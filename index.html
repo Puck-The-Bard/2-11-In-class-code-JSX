@@ -6,11 +6,62 @@
     <title>JSX Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="src/css/main.css">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
     
+    <div id="root"></div> <!--this is where the react will be placed on the page.  It is given the name "root"
+    to idenentify it in your react file-->
+
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>    
+
+    <!-- React -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> 
     
+
+
+    <!--My Script-->
     <script src="src/js/main.js"></script>
+
+        <!--if you don't specifiy what script it defaults to javascript-->
+        <script type = "text/babel">  //text babel translates jsx so it can display in the browser
+            //javascript
+            var root = document.getElementById('root'); //the getElementID is saying "get me the thing called root"
+    
+            var content = React.createElement('ul', {},
+             React.createElement('li'/* li makes a list item*/,{},"First thing" ),//this counds as a 3rd elemnt
+             React.createElement('li',{},"Thing Segundo" )
+             );
+    
+
+            //starting JSX
+            //looks like html but really isn't
+            //"text-danger" specifies color
+            var jsxcontent = (
+                <ul>
+                    <li><span className = "text-danger"> first thing</span> </li> 
+                    <li><span className = "text-danger"> second thing </span></li>
+                </ul>
+            );
+
+            /* React Psudocode
+            ReactDOM.createElent(
+                1. What html eleent do you want to make?
+                2. are there any attributes/properties you need to pass so that I can configure this new elemnt?
+                3. what content shall I place into this eleent? OR
+                4. Children --carful not to eath them
+            )
+            */
+
+            ReactDOM.render(jsxcontent, root); // render("what do you want me to show", where do you want me to show it?)
+            
+        </script>
+    
+            <!--the ReactDOM is for webpages not for mobile apps-->
 </body>
 </html>
